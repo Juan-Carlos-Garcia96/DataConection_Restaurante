@@ -3,12 +3,13 @@ package com.carlos.dataRestaurante.entity;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Clase que representa la tabla de tipo restaurante en base de datos
  *
  * */
-public class TipoRestaurante {
+public class TipoRestaurante  extends  CommonEntity{
  /**
   * Atributos defindos en las tablas para esta clase
   * */
@@ -16,10 +17,15 @@ public class TipoRestaurante {
 
     private  int idRestaurante;
     private  String descripcion;
-    private LocalDateTime fechaCreacion;
-    private LocalDateTime fechaModificacion;
-    private Boolean status;
+    private List<Restaurante> restaurantes;
 
+    public List<Restaurante> getRestaurantes() {
+        return restaurantes;
+    }
+
+    public void setRestaurantes(List<Restaurante> restaurantes) {
+        this.restaurantes = restaurantes;
+    }
 
     public int getIdRestaurante() {
         return idRestaurante;
@@ -37,27 +43,4 @@ public class TipoRestaurante {
         this.descripcion = descripcion;
     }
 
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public LocalDateTime getFechaModificacion() {
-        return fechaModificacion;
-    }
-
-    public void setFechaModificacion(LocalDateTime fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
-    }
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 }
