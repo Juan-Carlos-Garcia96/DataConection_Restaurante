@@ -3,6 +3,7 @@ package com.carlos.dataRestaurante;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class conection {
 
@@ -11,6 +12,11 @@ public class conection {
      * */
 
     private static Connection connection;
+
+    /**
+     * Atributo de tipo sentencia preparada
+     * */
+    private static Statement statement;
 
     /**
      * Metodo que intentara hacer la conexion con la base de datos, es aqui donde se agregara
@@ -33,6 +39,19 @@ public class conection {
          * */
 
         connection = DriverManager.getConnection(Url,user,password);
+
+
+        statement=connection.createStatement();
         return connection;
+    }
+
+    /**
+     * Método que trabaja  la manipulacion de datos ya sea INSERT, DELETE O UPDATE
+     * @param sql : depende de la accion a realizar como se menciono anteriormente, SLEECT etc
+     * */
+    public static int ejecutarSQL(String sql) throws SQLException {
+
+        return statement.executeUpdate(sql);
+
     }
 }
