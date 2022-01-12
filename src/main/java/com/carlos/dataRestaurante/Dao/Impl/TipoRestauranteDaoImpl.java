@@ -1,8 +1,10 @@
 package com.carlos.dataRestaurante.Dao.Impl;
 
 import com.carlos.dataRestaurante.Dao.TipoRestauranteDao;
+import com.carlos.dataRestaurante.conection;
 import com.carlos.dataRestaurante.entity.TipoRestaurante;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -11,6 +13,21 @@ import java.util.List;
  * **/
 
 public class TipoRestauranteDaoImpl implements TipoRestauranteDao {
+
+    static {
+
+        /**
+         * Bloque de código que intentará hacer la conexion a la base de datos para proceder con
+         * los siguientes métodos como son guardar, actualizar etc.
+         * */
+        try {
+            conection.conectar();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public int guardar(TipoRestaurante tipoRestaurante) {

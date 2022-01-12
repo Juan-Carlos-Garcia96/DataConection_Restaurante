@@ -1,9 +1,6 @@
 package com.carlos.dataRestaurante;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class conection {
 
@@ -47,11 +44,20 @@ public class conection {
 
     /**
      * Método que trabaja  la manipulacion de datos ya sea INSERT, DELETE O UPDATE
-     * @param sql : depende de la accion a realizar como se menciono anteriormente, SLEECT etc
+     * @param sql : depende de la accion a realizar como se menciono anteriormente, INSERT etc
      * */
     public static int ejecutarSQL(String sql) throws SQLException {
-
+        System.out.println("Echo " + sql);
         return statement.executeUpdate(sql);
 
     }
+    /**
+     * Método que  ejecutara sentencias de consulta SQL como son SELECT
+     * */
+    public  static ResultSet ejecutaConsultaSQL(String sql) throws SQLException {
+        System.out.println("Query " +sql);
+        return  statement.executeQuery(sql);
+
+    }
+
 }
