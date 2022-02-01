@@ -26,12 +26,16 @@ public class TipoRestauranteDaoImpl implements TipoRestauranteDao {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error de base de datos :" + e.getMessage());
         }
     }
 
     @Override
-    public int guardar(TipoRestaurante tipoRestaurante) {
-        return 0;
+    public int guardar(TipoRestaurante tipoRestaurante) throws SQLException {
+        String sql;
+        sql = "INSERT INTO tipo_restaurante (descripcion, fechaCreacion, estatus) VALUES ('"+tipoRestaurante.getDescripcion()+"', '"+ tipoRestaurante.getFechaCreacion() +"','" + tipoRestaurante.getStatus() + "');";
+        int estatus = conection.ejecutarSQL(sql);
+        return estatus;
     }
 
     @Override

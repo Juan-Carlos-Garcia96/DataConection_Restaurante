@@ -3,6 +3,7 @@ package com.carlos.dataRestaurante.Dao;
 import com.carlos.dataRestaurante.entity.TipoRestaurante;
 
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public interface TipoRestauranteDao {
 
     //Método que guardara información  en la tabla tipoRestaurante
     //1 en caso de ser exitoso, 0 en caso de ser error
-    int guardar (TipoRestaurante tipoRestaurante);
+    int guardar (TipoRestaurante tipoRestaurante) throws SQLException;
 
     /**
      * Método permitira actualizar datos en la tabla tipoRestaurante
